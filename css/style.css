@@ -18,6 +18,7 @@
 body {
     background: radial-gradient(#923c03fb, #501f03);
     min-height: 100vh;
+    cursor: url("../Assets/Cursors/Ghost.cur"), auto;
 }
 
 .page-title {
@@ -38,8 +39,10 @@ body {
 .game-info {
     font-family: Lunacy, serif;
     font-size: 3rem;
-    color: #350404fb;
-    text-shadow: 2px 2px rgba(199, 193, 193, 0.815);
+    color: #0c0503fb;
+    text-shadow: 2px 2px #dd5e0afb;
+    font-weight: 700;
+
 }
 
 .items-container {
@@ -53,13 +56,16 @@ body {
 
 .card {
     position: relative;
-
     height: 10em;
     width: 8em;
     border-radius: 1em;
 
 }
 
+.card:hover {
+    cursor: url("../Assets/Cursors/GhostHover.cur"), auto;
+
+}
 
 .card-look {
     position: absolute;
@@ -78,12 +84,44 @@ body {
     background-color: #000;
 }
 
-.card:hover .card-back {
+.card.visible .card-back {
     transform: rotateY(-180deg);
 }
 
-.card:hover .card-front {
+.card.visible .card-front {
     transform: rotateY(0);
+}
+
+.card.matched .card-value {
+    animation: dance 1 linear infinite 500ms;
+
+}
+
+.overlay-text {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999999;
+    font-family: Creepy, serif;
+    color: #dd5e0afb;
+    text-shadow: 20px 2px #000;
+}
+
+.click-to-restart {
+    font-size: 0.4em;
+}
+
+.overlay-text.visible {
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    animation: overlay-grow 500ms forwards;
 }
 
 .card-front {
@@ -147,4 +185,44 @@ body {
 
 .card-back:hover .spider {
     transform: translateY(0);
+}
+
+@keyframes dance {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-30deg);
+    }
+
+    75% {
+        transform: rotate(30deg);
+    }
+}
+
+
+@keyframes overlay-grow {
+
+
+    100% {
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 10em;
+    }
+
+
+}
+
+@media(max-width:600px) {
+    .items-container {
+        grid-template-columns: repeat(2, auto);
+
+    }
+
+    .game-info {
+        display: flex;
+        flex-direction: column;
+    }
 }

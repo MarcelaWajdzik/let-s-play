@@ -23,11 +23,12 @@ body {
 }
 
 .page-title {
-  color: #FF6D00;
   font-family: Creepy, serif;
-  font-weight: normal;
+  color: #dd5e0afb;
   text-align: center;
-  font-size: 6em;
+  font-size: 7rem;
+  padding: 2rem;
+  text-shadow: 20px 2px #000;
 }
 
 .game-info-container {
@@ -38,8 +39,11 @@ body {
 
 .game-info {
   font-family: Lunacy, serif;
-  color: #FFBB89;
-  font-size: 4em;
+  font-size: 3rem;
+  color: #0c0503fb;
+  text-shadow: 2px 2px #dd5e0afb;
+  font-weight: 700;
+  ;
 }
 
 .game-container {
@@ -53,8 +57,9 @@ body {
 
 .card {
   position: relative;
-  height: 175px;
-  width: 125px;
+  height: 10em;
+  width: 8em;
+
 }
 
 .card:hover {
@@ -70,9 +75,7 @@ body {
   align-items: center;
   overflow: hidden;
   backface-visibility: hidden;
-  border-radius: 12px;
-  border-width: 1px;
-  border-style: solid;
+  border-radius: 1em;
   transition: transform 500ms ease-in-out;
 }
 
@@ -98,8 +101,9 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 100;
-  color: #FF6D00;
   font-family: Creepy, serif;
+  color: #dd5e0afb;
+  text-shadow: 20px 2px #000;
 }
 
 .overlay-text-small {
@@ -113,23 +117,24 @@ body {
 }
 
 @keyframes overlay-grow {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 0;
-  }
-  to {
-    background-color: rgba(0, 0, 0, .8);
+
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
     font-size: 10em;
   }
 }
 
 @keyframes dance {
-  0%, 100%  {
+
+  0%,
+  100% {
     transform: rotate(0);
   }
+
   25% {
     transform: rotate(-30deg);
   }
+
   75% {
     transform: rotate(30deg);
   }
@@ -141,8 +146,7 @@ body {
 }
 
 .card-front {
-  background-color: #FFBB89;
-  border-color: #333;
+  background-color: #D8A38C;
   transform: rotateY(180deg);
 }
 
@@ -157,14 +161,14 @@ body {
 
 .cob-web {
   position: absolute;
-  width: 47px;
-  height: 47px;
+  width: 2.5em;
+  height: 2.5em;
   transition: width 100ms ease-in-out, height 100ms ease-in-out;
 }
 
 .card-face:hover .cob-web {
-  width: 52px;
-  height: 52px;
+  width: 2.9em;
+  height: 2.9em;
 }
 
 .cob-web-top-left {
